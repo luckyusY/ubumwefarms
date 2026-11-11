@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { SITE, formatPrice, whatsappLink } from '@/lib/site';
+import { WhatsAppIcon, CheckIcon } from '@/components/Icons';
 
 export default function OrderForm({ animal }) {
   const [form, setForm] = useState({ customerName: '', phone: '', location: '', quantity: 1, message: '' });
@@ -36,11 +37,11 @@ export default function OrderForm({ animal }) {
   if (state === 'done') {
     return (
       <div className="panel success" role="status">
-        <div className="big" aria-hidden>✅</div>
+        <div className="big ok"><CheckIcon aria-hidden /></div>
         <h2>Order received!</h2>
         <p>Thank you, {form.customerName}. We will call you on {form.phone} soon.</p>
         <a className="btn btn-wa" href={whatsappLink(waText)} target="_blank" rel="noopener noreferrer">
-          💬 Also message us on WhatsApp
+          <WhatsAppIcon aria-hidden /> Also message us on WhatsApp
         </a>
       </div>
     );
@@ -86,7 +87,7 @@ export default function OrderForm({ animal }) {
       </button>
       <div className="or">or</div>
       <a className="btn btn-wa btn-block" href={whatsappLink(waText)} target="_blank" rel="noopener noreferrer">
-        💬 Order on WhatsApp
+        <WhatsAppIcon aria-hidden /> Order on WhatsApp
       </a>
     </form>
   );

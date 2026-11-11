@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AnimalForm from './AnimalForm';
 import { categoryOf, formatPrice, img } from '@/lib/site';
+import { CatIcon, PhoneIcon, StarIcon } from '@/components/Icons';
 
 async function api(url, options) {
   const res = await fetch(url, {
@@ -121,14 +122,14 @@ export default function Dashboard({ dbReady }) {
           {animals.map((a) => (
             <div className="item" key={a._id}>
               <div className="pic">
-                {a.images?.[0] ? <img src={img(a.images[0], 160)} alt="" /> : categoryOf(a.category).icon}
+                {a.images?.[0] ? <img src={img(a.images[0], 160)} alt="" /> : <CatIcon slug={categoryOf(a.category).slug} />}
               </div>
               <div>
                 <h3>{a.name}</h3>
                 <div className="meta">
                   {formatPrice(a.price)} · {a.quantity} in stock ·{' '}
                   <span className={`badge ${a.available ? '' : 'off'}`}>{a.available ? 'On website' : 'Hidden'}</span>
-                  {a.featured && <> <span className="badge">★ Featured</span></>}
+                  {a.featured && <> <span className="badge"><StarIcon aria-hidden /> Featured</span></>}
                 </div>
               </div>
               <div className="actions">
@@ -159,7 +160,7 @@ export default function Dashboard({ dbReady }) {
                 {o.message && <div className="meta">“{o.message}”</div>}
               </div>
               <div className="actions">
-                <a className="btn btn-small btn-forest" href={`tel:${o.phone}`}>📞 {o.phone}</a>
+                <a className="btn btn-small btn-forest" href={`tel:${o.phone}`}><PhoneIcon aria-hidden /> {o.phone}</a>
                 <select
                   aria-label="Order status"
                   value={o.status}

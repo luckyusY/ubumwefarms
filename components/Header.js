@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
+import { CatIcon } from '@/components/Icons';
 
 export default function Header() {
   return (
     <header className="header">
       <div className="wrap">
         <Link href="/" className="logo">
-          <span className="logo-mark" aria-hidden>🐇</span>
+          <span className="logo-mark"><CatIcon slug="rabbits" /></span>
           {SITE.name}
         </Link>
         <nav className="nav">

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { categoryOf, formatPrice, img } from '@/lib/site';
+import { CatIcon } from '@/components/Icons';
 
 export default function AnimalCard({ animal }) {
   const cat = categoryOf(animal.category);
@@ -11,10 +12,10 @@ export default function AnimalCard({ animal }) {
         {animal.images?.[0] ? (
           <img src={img(animal.images[0], 600)} alt={animal.name} loading="lazy" />
         ) : (
-          <div className="no-photo" aria-hidden>{cat.icon}</div>
+          <div className="no-photo"><CatIcon slug={cat.slug} /></div>
         )}
         <span className={`tag ${soldOut ? 'sold' : ''}`}>
-          {soldOut ? 'Sold out' : `${cat.icon} ${cat.label}`}
+          {soldOut ? 'Sold out' : <><CatIcon slug={cat.slug} /> {cat.label}</>}
         </span>
       </div>
       <div className="card-body">

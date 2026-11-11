@@ -316,3 +316,24 @@ input:focus-visible, select:focus-visible, textarea:focus-visible, .btn:focus-vi
 .upload button { position: absolute; top: 3px; right: 3px; width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--ink); background: #fff; font-weight: 700; line-height: 1; cursor: pointer; padding: 0; }
 .add-photo { display: grid; place-items: center; width: 92px; height: 76px; border: 2px dashed var(--ink); border-radius: 12px; font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; background: #fff; }
 .add-photo input { display: none; }
+
+/* ---------- icons ---------- */
+svg { flex: none; }
+.logo-mark { color: var(--paper); font-size: 24px; }
+.chip, .tag, .badge, .more, .hero-badge { display: inline-flex; align-items: center; gap: 6px; }
+.chip svg, .tag svg { font-size: 1.25em; }
+.section-head h2 { display: flex; align-items: center; gap: 12px; }
+.cat span.icon { display: grid; color: var(--forest); }
+.cat.big span.icon { color: var(--hay); }
+.cat:hover span.icon { color: var(--ink); }
+.cat.big:hover span.icon { color: #fff; }
+.no-photo { color: #b9aa86; font-size: 84px; }
+.notice .big { display: grid; place-items: center; color: var(--forest); font-size: 56px; }
+.success .big { display: grid; place-items: center; }
+.success .big.ok { color: var(--leaf); }
+.perk .icon { display: grid; place-items: center; width: 54px; height: 54px; font-size: 24px; color: var(--paper); background: var(--forest); border: 2px solid var(--ink); border-radius: 16px 16px 16px 4px; }
+.hero-badge.b1 svg { color: var(--leaf); }
+.footer li a, .footer li span { display: inline-flex; align-items: center; gap: 9px; }
+.footer li svg { color: var(--hay); font-size: 1.1em; }
+.item .pic { color: var(--forest); }
+.wa-float svg, .btn-wa svg { font-size: 1.3em; }

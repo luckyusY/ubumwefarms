@@ -32,7 +32,7 @@ export default async function AnimalPage({ params }) {
         <Link href="/animals">Animals</Link> / <Link href={`/animals?category=${cat.slug}`}>{cat.label}</Link>
       </div>
       <div className="detail">
-        <Gallery images={animal.images} name={animal.name} icon={cat.icon} />
+        <Gallery images={animal.images} name={animal.name} category={cat.slug} />
         <div>
           <h1>{animal.name}</h1>
           <div className="price">

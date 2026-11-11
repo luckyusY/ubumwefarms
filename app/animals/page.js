@@ -2,6 +2,7 @@ import Link from 'next/link';
 import AnimalCard from '@/components/AnimalCard';
 import { getAnimals } from '@/lib/data';
 import { SITE, CATEGORIES, whatsappLink } from '@/lib/site';
+import { CatIcon, WhatsAppIcon } from '@/components/Icons';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Animals for sale' };
@@ -18,7 +19,7 @@ export default async function AnimalsPage({ searchParams }) {
       <div className="wrap">
         <div className="section-head">
           <div>
-            <h2>{current ? `${current.icon} ${current.label}` : 'All animals'}</h2>
+            <h2>{current ? <><CatIcon slug={current.slug} /> {current.label}</> : 'All animals'}</h2>
             <p>{animals.length} available{q ? ` for "${q}"` : ''}</p>
           </div>
         </div>
@@ -33,7 +34,7 @@ export default async function AnimalsPage({ searchParams }) {
           <Link href="/animals" className={`chip ${!category ? 'on' : ''}`}>All</Link>
           {CATEGORIES.map((c) => (
             <Link key={c.slug} href={`/animals?category=${c.slug}`} className={`chip ${category === c.slug ? 'on' : ''}`}>
-              {c.icon} {c.label}
+              <CatIcon slug={c.slug} /> {c.label}
             </Link>
           ))}
         </div>
@@ -44,11 +45,11 @@ export default async function AnimalsPage({ searchParams }) {
           </div>
         ) : (
           <div className="notice">
-            <div className="big" aria-hidden>{current?.icon || '🌾'}</div>
+            <div className="big"><CatIcon slug={current?.slug || 'other'} /></div>
             <h3>{error ? 'Our list is loading slowly today' : 'Nothing here right now'}</h3>
             <p>Message us and we will tell you what is available or when more arrive.</p>
             <a className="btn btn-wa" href={whatsappLink(`Hello ${SITE.name}, do you have ${current ? current.label.toLowerCase() : 'animals'} available?`)} target="_blank" rel="noopener noreferrer">
-              💬 Ask on WhatsApp
+              <WhatsAppIcon aria-hidden /> Ask on WhatsApp
             </a>
           </div>
         )}

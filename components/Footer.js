@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SITE, CATEGORIES, whatsappLink } from '@/lib/site';
+import { CatIcon, PhoneIcon, WhatsAppIcon, PinIcon } from '@/components/Icons';
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className="wrap">
         <div>
           <div className="logo">
-            <span className="logo-mark" aria-hidden>🐇</span>
+            <span className="logo-mark"><CatIcon slug="rabbits" /></span>
             {SITE.name}
           </div>
           <p>{SITE.tagline}</p>
@@ -18,7 +19,7 @@ export default function Footer() {
           <ul>
             {CATEGORIES.slice(0, 5).map((c) => (
               <li key={c.slug}>
-                <Link href={`/animals?category=${c.slug}`}>{c.icon} {c.label}</Link>
+                <Link href={`/animals?category=${c.slug}`}><CatIcon slug={c.slug} /> {c.label}</Link>
               </li>
             ))}
           </ul>
@@ -26,11 +27,11 @@ export default function Footer() {
         <div>
           <h3>Contact</h3>
           <ul>
-            <li><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>📞 {SITE.phone}</a></li>
+            <li><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}><PhoneIcon aria-hidden /> {SITE.phone}</a></li>
             <li>
-              <a href={whatsappLink(`Hello ${SITE.name}!`)} target="_blank" rel="noopener noreferrer">💬 WhatsApp us</a>
+              <a href={whatsappLink(`Hello ${SITE.name}!`)} target="_blank" rel="noopener noreferrer"><WhatsAppIcon aria-hidden /> WhatsApp us</a>
             </li>
-            <li>📍 {SITE.location}</li>
+            <li><span><PinIcon aria-hidden /> {SITE.location}</span></li>
             <li><Link href="/admin">Farm login</Link></li>
           </ul>
         </div>

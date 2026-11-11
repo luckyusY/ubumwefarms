@@ -102,7 +102,7 @@ export default function AnimalForm({ animal, onCancel, onSaved }) {
         <div className="field">
           <label htmlFor="a-cat">Type</label>
           <select id="a-cat" value={form.category} onChange={set('category')}>
-            {CATEGORIES.map((c) => <option key={c.slug} value={c.slug}>{c.icon} {c.label}</option>)}
+            {CATEGORIES.map((c) => <option key={c.slug} value={c.slug}>{c.label}</option>)}
           </select>
         </div>
       </div>

@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { SITE, whatsappLink } from '@/lib/site';
+import { WhatsAppIcon } from '@/components/Icons';
 
 const display = Fraunces({ subsets: ['latin'], variable: '--font-display', display: 'swap' });
 const body = Figtree({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span aria-hidden>💬</span> WhatsApp
+          <WhatsAppIcon aria-hidden /> WhatsApp
         </a>
       </body>
     </html>

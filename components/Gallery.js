@@ -1,8 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { img } from '@/lib/site';
+import { CatIcon } from '@/components/Icons';
 
-export default function Gallery({ images = [], name, icon }) {
+export default function Gallery({ images = [], name, category }) {
   const [i, setI] = useState(0);
   return (
     <div>
@@ -10,7 +11,7 @@ export default function Gallery({ images = [], name, icon }) {
         {images[i] ? (
           <img src={img(images[i], 1000)} alt={name} />
         ) : (
-          <div className="no-photo" aria-hidden>{icon}</div>
+          <div className="no-photo"><CatIcon slug={category} /></div>
         )}
       </div>
       {images.length > 1 && (
