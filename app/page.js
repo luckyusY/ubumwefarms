@@ -1,31 +1,11 @@
 import Link from 'next/link';
 import AnimalCard from '@/components/AnimalCard';
 import { getAnimals } from '@/lib/data';
+import { HERO_PHOTO, FARM_PHOTOS, farmPhoto } from '@/lib/photos';
 import { SITE, CATEGORIES, whatsappLink } from '@/lib/site';
 import { CatIcon, WhatsAppIcon, PhoneIcon, LeafIcon, ArrowIcon, HealthIcon, BreedIcon, HandshakeIcon, AdviceIcon } from '@/components/Icons';
 
 export const dynamic = 'force-dynamic';
-
-function Rabbit() {
-  return (
-    <svg viewBox="0 0 200 200" role="img" aria-label="Rabbit">
-      <ellipse cx="82" cy="52" rx="13" ry="42" fill="#f7f0e1" transform="rotate(-12 82 52)" />
-      <ellipse cx="116" cy="50" rx="13" ry="42" fill="#f7f0e1" transform="rotate(10 116 50)" />
-      <ellipse cx="83" cy="56" rx="6" ry="28" fill="#f2b9a0" transform="rotate(-12 83 56)" />
-      <ellipse cx="115" cy="54" rx="6" ry="28" fill="#f2b9a0" transform="rotate(10 115 54)" />
-      <ellipse cx="100" cy="150" rx="58" ry="44" fill="#f7f0e1" />
-      <circle cx="100" cy="104" r="40" fill="#f7f0e1" />
-      <circle cx="85" cy="98" r="5" fill="#1d2f24" />
-      <circle cx="115" cy="98" r="5" fill="#1d2f24" />
-      <ellipse cx="100" cy="112" rx="6" ry="4" fill="#e0661f" />
-      <path d="M100 116v7M100 123c-4 5-10 5-13 1M100 123c4 5 10 5 13 1" stroke="#1d2f24" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-      <circle cx="74" cy="112" r="7" fill="#f2b9a0" opacity=".6" />
-      <circle cx="126" cy="112" r="7" fill="#f2b9a0" opacity=".6" />
-      <ellipse cx="72" cy="186" rx="20" ry="9" fill="#efe5cf" />
-      <ellipse cx="128" cy="186" rx="20" ry="9" fill="#efe5cf" />
-    </svg>
-  );
-}
 
 export default async function Home() {
   const { animals, error } = await getAnimals({ limit: 8 });
@@ -49,7 +29,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="hero-art rise d2">
-            <Rabbit />
+            <img className="hero-img" src={farmPhoto(HERO_PHOTO, 900, 900)} alt={HERO_PHOTO.alt} />
             <span className="hero-badge b1"><LeafIcon aria-hidden /> Farm raised</span>
             <span className="hero-badge b2">Fair prices</span>
           </div>
@@ -98,6 +78,24 @@ export default async function Home() {
               </a>
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <h2>From our farm</h2>
+              <p>Real photos of our rabbits, taken in our hutches.</p>
+            </div>
+          </div>
+          <div className="farm-photos">
+            {FARM_PHOTOS.map((p) => (
+              <figure key={p.id}>
+                <img src={farmPhoto(p, 600, 720)} alt={p.alt} loading="lazy" />
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
