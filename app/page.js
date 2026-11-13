@@ -2,6 +2,7 @@ import Link from 'next/link';
 import AnimalCard from '@/components/AnimalCard';
 import { getAnimals } from '@/lib/data';
 import { HERO_PHOTO, FARM_PHOTOS, farmPhoto } from '@/lib/photos';
+import { Carrot, Sprig, Paws, Ticker } from '@/components/Art';
 import { SITE, CATEGORIES, whatsappLink } from '@/lib/site';
 import { CatIcon, WhatsAppIcon, PhoneIcon, LeafIcon, ArrowIcon, HealthIcon, BreedIcon, HandshakeIcon, AdviceIcon } from '@/components/Icons';
 
@@ -17,7 +18,7 @@ export default async function Home() {
           <div>
             <span className="eyebrow rise">Murakaza neza · Welcome</span>
             <h1 className="rise d1">
-              Healthy <em>rabbits</em>, straight from our farm.
+              Healthy <em className="squiggle">rabbits</em>, straight from our farm.
             </h1>
             <p className="lead rise d2">
               {SITE.name} raises rabbits, chickens, goats and more. Pick an animal, send your order,
@@ -28,13 +29,21 @@ export default async function Home() {
               <Link href="/animals" className="btn">All animals</Link>
             </div>
           </div>
-          <div className="hero-art rise d2">
+          <div className="hero-stage rise d2">
+            <Carrot className="art carrot-a" />
+            <Carrot className="art carrot-b" />
+            <Sprig className="art sprig-a" />
+            <Paws className="art paws-a" />
+          <div className="hero-art">
             <img className="hero-img" src={farmPhoto(HERO_PHOTO, 900, 900)} alt={HERO_PHOTO.alt} />
             <span className="hero-badge b1"><LeafIcon aria-hidden /> Farm raised</span>
             <span className="hero-badge b2">Fair prices</span>
           </div>
+          </div>
         </div>
       </section>
+
+      <Ticker />
 
       <section className="section">
         <div className="wrap">
@@ -141,6 +150,7 @@ export default async function Home() {
       <section className="section" id="contact">
         <div className="wrap">
           <div className="cta">
+            <Carrot className="art carrot-cta" />
             <div>
               <h2>Want to visit or ask a question?</h2>
               <p>Call {SITE.phone} or message us. We are in {SITE.location}.</p>

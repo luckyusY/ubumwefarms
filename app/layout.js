@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { SITE, whatsappLink } from '@/lib/site';
+import BuyPopup from '@/components/BuyPopup';
 import { WhatsAppIcon } from '@/components/Icons';
 
 const display = Fraunces({ subsets: ['latin'], variable: '--font-display', display: 'swap' });
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main>{children}</main>
         <Footer />
+        <BuyPopup />
         <a
           className="wa-float"
           href={whatsappLink(`Hello ${SITE.name}, I would like to ask about your animals.`)}
