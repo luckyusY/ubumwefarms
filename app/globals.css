@@ -453,4 +453,4 @@ svg { flex: none; }
 @media (prefers-reduced-motion: reduce) { .popup, .popup-backdrop { animation: none; } }
 
 /* the tilted strip must not cause sideways scrolling */
-body { overflow-x: clip; }
+html, body, main { overflow-x: clip; }
