@@ -3,10 +3,41 @@ import AnimalCard from '@/components/AnimalCard';
 import { getAnimals } from '@/lib/data';
 import { HERO_PHOTO, FARM_PHOTOS, farmPhoto } from '@/lib/photos';
 import { Carrot, Sprig, Paws, Ticker } from '@/components/Art';
-import { SITE, CATEGORIES, whatsappLink } from '@/lib/site';
+import { SITE, CATEGORIES, whatsappLink, formatPrice } from '@/lib/site';
 import { CatIcon, WhatsAppIcon, PhoneIcon, LeafIcon, ArrowIcon, HealthIcon, BreedIcon, HandshakeIcon, AdviceIcon } from '@/components/Icons';
 
 export const dynamic = 'force-dynamic';
+
+const PRICES = [
+  {
+    title: 'Rabbit for eating',
+    text: 'Healthy, well-fed rabbit, ready for the table.',
+    price: 8000,
+    unit: 'per rabbit',
+    icon: 'rabbits',
+    tone: 'light',
+    href: '/animals?category=rabbits&q=eating',
+  },
+  {
+    title: 'Breeding rabbit',
+    text: 'Our best breeding stock, chosen to raise strong young.',
+    price: 20000,
+    unit: 'per rabbit',
+    icon: 'rabbits',
+    tone: 'dark',
+    tag: 'Best breed',
+    href: '/animals?category=rabbits&q=breeding',
+  },
+  {
+    title: 'Fresh mushrooms',
+    text: 'Picked fresh for soups, sauces and stir-fries.',
+    price: 3000,
+    unit: 'per kg',
+    icon: 'mushrooms',
+    tone: 'hay',
+    href: '/animals?category=mushrooms',
+  },
+];
 
 export default async function Home() {
   const { animals, error } = await getAnimals({ limit: 8 });
@@ -21,8 +52,8 @@ export default async function Home() {
               Healthy <em className="squiggle">rabbits</em>, straight from our farm.
             </h1>
             <p className="lead rise d2">
-              {SITE.name} raises rabbits, chickens, goats and more. Pick an animal, send your order,
-              and we call you to arrange pickup or delivery.
+              {SITE.name} raises rabbits for eating and for breeding, and grows fresh mushrooms. Choose what you
+              want, send your order, and we call you to arrange pickup or delivery.
             </p>
             <div className="hero-actions rise d3">
               <Link href="/animals?category=rabbits" className="btn btn-carrot"><CatIcon slug="rabbits" /> See rabbits</Link>
@@ -45,12 +76,37 @@ export default async function Home() {
 
       <Ticker />
 
+      <section className="section" id="prices">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <h2>Our prices</h2>
+              <p>Simple and clear. You pay when you receive.</p>
+            </div>
+          </div>
+          <div className="prices">
+            {PRICES.map((p) => (
+              <Link key={p.title} href={p.href} className={`price-card ${p.tone}`}>
+                {p.tag && <span className="price-tag">{p.tag}</span>}
+                <span className="price-icon"><CatIcon slug={p.icon} /></span>
+                <h3>{p.title}</h3>
+                <p>{p.text}</p>
+                <div className="price-amount">
+                  {formatPrice(p.price)} <small>{p.unit}</small>
+                </div>
+                <span className="price-go">Order now <ArrowIcon aria-hidden /></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="wrap">
           <div className="section-head">
             <div>
               <h2>What are you looking for?</h2>
-              <p>Tap an animal to see what we have today.</p>
+              <p>Tap a category to see what we have today.</p>
             </div>
           </div>
           <div className="cats">
@@ -71,7 +127,7 @@ export default async function Home() {
               <h2>Available now</h2>
               <p>Fresh from the farm this week.</p>
             </div>
-            <Link href="/animals" className="more">See all animals <ArrowIcon aria-hidden /></Link>
+            <Link href="/animals" className="more">See everything <ArrowIcon aria-hidden /></Link>
           </div>
           {animals.length > 0 ? (
             <div className="grid">

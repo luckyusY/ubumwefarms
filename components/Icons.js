@@ -1,4 +1,4 @@
-import { GiRabbit, GiChicken, GiGoat, GiPig, GiCow, GiSheep, GiDuck, GiBarn } from 'react-icons/gi';
+import { GiMushroomsCluster, GiRabbit, GiChicken, GiGoat, GiPig, GiCow, GiSheep, GiDuck, GiBarn } from 'react-icons/gi';
 
 export {
   FaWhatsapp as WhatsAppIcon,
@@ -16,6 +16,7 @@ export {
 
 const BY_CATEGORY = {
   rabbits: GiRabbit,
+  mushrooms: GiMushroomsCluster,
   chickens: GiChicken,
   goats: GiGoat,
   pigs: GiPig,

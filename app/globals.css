@@ -454,3 +454,50 @@ svg { flex: none; }
 
 /* the tilted strip must not cause sideways scrolling */
 html, body, main { overflow-x: clip; }
+
+/* ---------- 9 category tiles: rabbits spans two, giving 2 rows of 5 (5 rows of 2 on phones) ---------- */
+.cats { grid-template-columns: repeat(5, 1fr); }
+.cat.big { grid-column: span 2; flex-direction: row; justify-content: center; gap: 14px; font-size: 22px; }
+.cat.big span.icon { font-size: 56px; }
+@media (max-width: 720px) {
+  .cats { grid-template-columns: repeat(2, 1fr); }
+  .cat.big { font-size: 19px; }
+}
+
+/* ---------- prices ---------- */
+.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.price-card {
+  position: relative; display: flex; flex-direction: column; gap: 6px; padding: 26px 24px 22px;
+  background: var(--card); border: 2px solid var(--ink); border-radius: 26px;
+  box-shadow: 6px 6px 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s;
+}
+.price-card:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--ink); }
+.price-card.dark { background: var(--forest); color: #fff; transform: translateY(-10px); }
+.price-card.dark:hover { transform: translate(-3px, -13px); }
+.price-card.hay { background: var(--hay); }
+.price-card h3 { font-size: 26px; }
+.price-card p { margin: 0; color: var(--ink-soft); }
+.price-card.dark p { color: #cfe0d4; }
+.price-icon {
+  display: grid; place-items: center; width: 60px; height: 60px; margin-bottom: 8px; font-size: 34px;
+  color: var(--forest); background: var(--paper); border: 2px solid var(--ink); border-radius: 50%;
+}
+.price-card.dark .price-icon { color: var(--forest); background: var(--hay); }
+.price-amount { margin-top: 12px; font-family: var(--font-display); font-size: 36px; font-weight: 700; line-height: 1; color: var(--carrot-dark); }
+.price-card.dark .price-amount { color: var(--hay); }
+.price-amount small { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--ink-soft); }
+.price-card.dark .price-amount small { color: #cfe0d4; }
+.price-go { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-weight: 700; }
+.price-card:hover .price-go svg { transform: translateX(4px); }
+.price-go svg { transition: transform 0.15s; }
+.price-tag {
+  position: absolute; top: -14px; right: 18px; padding: 4px 12px; transform: rotate(3deg);
+  background: var(--carrot); color: #fff; border: 2px solid var(--ink); border-radius: 999px;
+  font-weight: 700; font-size: 14px;
+}
+@media (max-width: 820px) {
+  .prices { grid-template-columns: 1fr; gap: 18px; }
+  .price-card.dark { transform: none; }
+  .price-card.dark:hover { transform: translate(-3px, -3px); }
+}
+.price-amount small, .price small { display: inline-block; white-space: nowrap; }

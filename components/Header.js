@@ -12,7 +12,7 @@ export default function Header() {
         </Link>
         <nav className="nav">
           <Link href="/animals?category=rabbits" className="link hide-sm">Rabbits</Link>
-          <Link href="/animals" className="link hide-sm">All animals</Link>
+          <Link href="/animals?category=mushrooms" className="link hide-sm">Mushrooms</Link>
           <Link href="/#contact" className="link hide-sm">Contact</Link>
           <Link href="/animals" className="btn btn-carrot btn-small">Buy now</Link>
         </nav>

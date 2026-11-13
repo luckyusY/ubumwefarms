@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AnimalForm from './AnimalForm';
-import { categoryOf, formatPrice, img } from '@/lib/site';
+import { categoryOf, formatPrice, img, unitLabel } from '@/lib/site';
 import { CatIcon, PhoneIcon, StarIcon } from '@/components/Icons';
 
 async function api(url, options) {
@@ -127,7 +127,7 @@ export default function Dashboard({ dbReady }) {
               <div>
                 <h3>{a.name}</h3>
                 <div className="meta">
-                  {formatPrice(a.price)} · {a.quantity} in stock ·{' '}
+                  {formatPrice(a.price)} {unitLabel(a.unit)} · {a.quantity} in stock ·{' '}
                   <span className={`badge ${a.available ? '' : 'off'}`}>{a.available ? 'On website' : 'Hidden'}</span>
                   {a.featured && <> <span className="badge"><StarIcon aria-hidden /> Featured</span></>}
                 </div>

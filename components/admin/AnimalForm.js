@@ -4,7 +4,7 @@ import { CATEGORIES, img } from '@/lib/site';
 
 const EMPTY = {
   name: '', category: 'rabbits', breed: '', age: '', sex: '', weight: '',
-  price: '', quantity: 1, description: '', images: [], featured: false, available: true,
+  price: '', unit: 'each', quantity: 1, description: '', images: [], featured: false, available: true,
 };
 
 async function uploadPhoto(file) {
@@ -97,7 +97,7 @@ export default function AnimalForm({ animal, onCancel, onSaved }) {
       <div className="row2">
         <div className="field">
           <label htmlFor="a-name">Name</label>
-          <input id="a-name" type="text" required placeholder="New Zealand White rabbit" value={form.name} onChange={set('name')} />
+          <input id="a-name" type="text" required placeholder="Breeding rabbit, white" value={form.name} onChange={set('name')} />
         </div>
         <div className="field">
           <label htmlFor="a-cat">Type</label>
@@ -107,10 +107,19 @@ export default function AnimalForm({ animal, onCancel, onSaved }) {
         </div>
       </div>
 
-      <div className="row2">
+      <div className="row3">
         <div className="field">
-          <label htmlFor="a-price">Price for one (RWF)</label>
+          <label htmlFor="a-price">Price (RWF)</label>
           <input id="a-price" type="number" min="0" required inputMode="numeric" value={form.price} onChange={set('price')} />
+        </div>
+        <div className="field">
+          <label htmlFor="a-unit">Price is for</label>
+          <select id="a-unit" value={form.unit} onChange={set('unit')}>
+            <option value="each">One (each)</option>
+            <option value="kg">1 kg</option>
+            <option value="tray">1 tray</option>
+            <option value="pair">1 pair</option>
+          </select>
         </div>
         <div className="field">
           <label htmlFor="a-qty">How many in stock</label>

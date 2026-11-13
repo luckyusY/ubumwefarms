@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Gallery from '@/components/Gallery';
 import OrderForm from '@/components/OrderForm';
 import { getAnimal } from '@/lib/data';
-import { categoryOf, formatPrice } from '@/lib/site';
+import { categoryOf, formatPrice, unitLabel } from '@/lib/site';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,20 +23,20 @@ export default async function AnimalPage({ params }) {
     ['Age', animal.age],
     ['Sex', animal.sex],
     ['Weight', animal.weight],
-    ['In stock', animal.quantity > 0 ? String(animal.quantity) : 'Sold out'],
+    ['Availability', animal.quantity > 0 ? 'Available now' : 'Sold out'],
   ].filter(([, v]) => v);
 
   return (
     <div className="wrap">
       <div className="crumbs">
-        <Link href="/animals">Animals</Link> / <Link href={`/animals?category=${cat.slug}`}>{cat.label}</Link>
+        <Link href="/animals">Shop</Link> / <Link href={`/animals?category=${cat.slug}`}>{cat.label}</Link>
       </div>
       <div className="detail">
         <Gallery images={animal.images} name={animal.name} category={cat.slug} />
         <div>
           <h1>{animal.name}</h1>
           <div className="price">
-            {formatPrice(animal.price)} <small>each</small>
+            {formatPrice(animal.price)} <small>{unitLabel(animal.unit)}</small>
           </div>
           <ul className="facts">
             {facts.map(([k, v]) => (
@@ -44,7 +44,7 @@ export default async function AnimalPage({ params }) {
             ))}
           </ul>
           {animal.description && <p className="desc">{animal.description}</p>}
-          <OrderForm animal={{ _id: animal._id, name: animal.name, price: animal.price, quantity: animal.quantity }} />
+          <OrderForm animal={{ _id: animal._id, name: animal.name, price: animal.price, unit: animal.unit, quantity: animal.quantity }} />
         </div>
       </div>
     </div>

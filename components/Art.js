@@ -53,6 +53,7 @@ export function Paws(props) {
 const WORDS = [
   ['rabbits', 'Healthy rabbits'],
   [null, 'Farm raised'],
+  ['mushrooms', 'Fresh mushrooms'],
   ['chickens', 'Chickens'],
   [null, 'Fair prices'],
   ['goats', 'Goats'],

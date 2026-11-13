@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { SITE, formatPrice, whatsappLink } from '@/lib/site';
+import { SITE, formatPrice, whatsappLink, unitLabel } from '@/lib/site';
 import { WhatsAppIcon, CheckIcon } from '@/components/Icons';
 
 export default function OrderForm({ animal }) {
@@ -10,8 +10,10 @@ export default function OrderForm({ animal }) {
   const soldOut = animal.quantity <= 0;
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
   const qty = Math.max(1, parseInt(form.quantity, 10) || 1);
+  const byUnit = animal.unit && animal.unit !== 'each';
+  const amount = byUnit ? `${qty} ${animal.unit}` : `${qty} x`;
 
-  const waText = `Hello ${SITE.name}, I want to buy ${qty} x ${animal.name} (${formatPrice(animal.price)} each).${
+  const waText = `Hello ${SITE.name}, I want to buy ${amount} ${animal.name} (${formatPrice(animal.price)} ${unitLabel(animal.unit)}).${
     form.customerName ? ` My name is ${form.customerName}.` : ''
   }`;
 
@@ -49,7 +51,7 @@ export default function OrderForm({ animal }) {
 
   return (
     <form className="panel" onSubmit={submit}>
-      <h2>{soldOut ? 'Ask about the next batch' : 'Order this animal'}</h2>
+      <h2>{soldOut ? 'Ask about the next batch' : 'Order now'}</h2>
       <p>No payment now. We call you to confirm.</p>
 
       <div className="field">
@@ -62,7 +64,7 @@ export default function OrderForm({ animal }) {
           <input id="o-phone" type="tel" required autoComplete="tel" placeholder="07..." value={form.phone} onChange={set('phone')} />
         </div>
         <div className="field">
-          <label htmlFor="o-qty">How many?</label>
+          <label htmlFor="o-qty">{byUnit ? `How many ${animal.unit}?` : 'How many?'}</label>
           <input id="o-qty" type="number" min="1" inputMode="numeric" value={form.quantity} onChange={set('quantity')} />
         </div>
       </div>

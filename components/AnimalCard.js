@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { categoryOf, formatPrice, img } from '@/lib/site';
+import { categoryOf, formatPrice, img, unitLabel } from '@/lib/site';
 import { CatIcon } from '@/components/Icons';
 
 export default function AnimalCard({ animal }) {
@@ -22,7 +22,7 @@ export default function AnimalCard({ animal }) {
         <h3>{animal.name}</h3>
         {meta && <div className="meta">{meta}</div>}
         <div className="price">
-          {formatPrice(animal.price)} <small>each</small>
+          {formatPrice(animal.price)} <small>{unitLabel(animal.unit)}</small>
         </div>
       </div>
     </Link>

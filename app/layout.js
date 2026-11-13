@@ -10,8 +10,8 @@ const display = Fraunces({ subsets: ['latin'], variable: '--font-display', displ
 const body = Figtree({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
 
 export const metadata = {
-  title: { default: `${SITE.name} | Rabbits and farm animals for sale`, template: `%s | ${SITE.name}` },
-  description: 'Buy healthy rabbits, chickens, goats, pigs and other farm animals directly from Ubumwe Farms.',
+  title: { default: `${SITE.name} | Rabbits and fresh mushrooms`, template: `%s | ${SITE.name}` },
+  description: 'Buy rabbits for eating or breeding, fresh mushrooms and other farm produce directly from Ubumwe Farms.',
 };
 
 export const viewport = { themeColor: '#1f4a33' };

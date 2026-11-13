@@ -5,7 +5,7 @@ import { SITE, CATEGORIES, whatsappLink } from '@/lib/site';
 import { CatIcon, WhatsAppIcon } from '@/components/Icons';
 
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'Animals for sale' };
+export const metadata = { title: 'Shop' };
 
 export default async function AnimalsPage({ searchParams }) {
   const sp = await searchParams;
@@ -19,14 +19,14 @@ export default async function AnimalsPage({ searchParams }) {
       <div className="wrap">
         <div className="section-head">
           <div>
-            <h2>{current ? <><CatIcon slug={current.slug} /> {current.label}</> : 'All animals'}</h2>
+            <h2>{current ? <><CatIcon slug={current.slug} /> {current.label}</> : 'Everything for sale'}</h2>
             <p>{animals.length} available{q ? ` for "${q}"` : ''}</p>
           </div>
         </div>
 
         <form className="search" action="/animals">
           {category && <input type="hidden" name="category" value={category} />}
-          <input type="search" name="q" defaultValue={q} placeholder="Search, for example: New Zealand White" aria-label="Search animals" />
+          <input type="search" name="q" defaultValue={q} placeholder="Search, for example: breeding" aria-label="Search" />
           <button className="btn btn-forest">Search</button>
         </form>
 
