@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import AnimalCard from '@/components/AnimalCard';
 import { getAnimals } from '@/lib/data';
-import { HERO_PHOTO, FARM_PHOTOS, farmPhoto } from '@/lib/photos';
+import { HERO_PHOTO, HERO_BG, FARM_PHOTOS, farmPhoto } from '@/lib/photos';
 import { Carrot, Sprig, Paws, Ticker } from '@/components/Art';
 import { SITE, CATEGORIES, whatsappLink, formatPrice } from '@/lib/site';
 import { CatIcon, WhatsAppIcon, PhoneIcon, LeafIcon, ArrowIcon, HealthIcon, BreedIcon, HandshakeIcon, AdviceIcon } from '@/components/Icons';
@@ -44,7 +44,7 @@ export default async function Home() {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero hero-photo" style={{ '--hero-bg': `url(${HERO_BG})` }}>
         <div className="wrap hero-grid">
           <div>
             <span className="eyebrow rise">Murakaza neza · Welcome</span>

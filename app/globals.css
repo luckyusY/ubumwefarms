@@ -501,3 +501,31 @@ html, body, main { overflow-x: clip; }
   .price-card.dark:hover { transform: translate(-3px, -3px); }
 }
 .price-amount small, .price small { display: inline-block; white-space: nowrap; }
+
+/* ---------- full-width photo behind the hero ---------- */
+.hero-photo {
+  position: relative; color: #fff;
+  padding: 72px 0 96px;
+  background:
+    linear-gradient(to bottom, transparent 72%, var(--paper) 100%),
+    linear-gradient(90deg, rgba(12, 30, 20, 0.86) 0%, rgba(12, 30, 20, 0.6) 42%, rgba(12, 30, 20, 0.1) 78%),
+    var(--hero-bg) center 35% / cover no-repeat,
+    var(--forest);
+}
+.hero-photo h1 { color: #fff; text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35); }
+.hero-photo h1 em { color: var(--hay); }
+.hero-photo p.lead { color: rgba(255, 255, 255, 0.92); }
+.hero-photo .paws-a { opacity: 0.3; filter: invert(1); }
+@media (max-width: 860px) {
+  .hero-photo {
+    padding: 44px 0 70px;
+    background:
+      linear-gradient(to bottom, transparent 80%, var(--paper) 100%),
+      linear-gradient(rgba(12, 30, 20, 0.72), rgba(12, 30, 20, 0.6)),
+      var(--hero-bg) center / cover no-repeat,
+      var(--forest);
+  }
+}
+.hero-photo .hero-badge.b1 { color: var(--ink); }
+.hero-badge { white-space: nowrap; }
+.hero-art .hero-badge svg { width: 1em; height: 1em; flex: none; }
