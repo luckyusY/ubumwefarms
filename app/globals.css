@@ -529,3 +529,31 @@ html, body, main { overflow-x: clip; }
 .hero-photo .hero-badge.b1 { color: var(--ink); }
 .hero-badge { white-space: nowrap; }
 .hero-art .hero-badge svg { width: 1em; height: 1em; flex: none; }
+
+/* ---------- language bar (Google Translate) ---------- */
+.langbar { background: var(--ink); color: #e7dfcc; font-size: 14px; }
+.langbar .wrap { display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 40px; }
+.langbar-label { display: inline-flex; align-items: center; gap: 7px; color: var(--hay); font-weight: 700; }
+.langbar-options { display: flex; gap: 4px; }
+.langbar-options button {
+  padding: 5px 12px; font: inherit; font-weight: 600; color: #e7dfcc; cursor: pointer;
+  background: transparent; border: 1.5px solid transparent; border-radius: 999px;
+}
+.langbar-options button:hover { border-color: rgba(236, 195, 91, 0.6); }
+.langbar-options button.on { background: var(--hay); color: var(--ink); border-color: var(--hay); }
+.langbar-options button:focus-visible { outline: 3px solid var(--carrot); outline-offset: 2px; }
+.langbar-options .short { display: none; }
+@media (max-width: 560px) {
+  .langbar .wrap { justify-content: space-between; }
+  .langbar-options .long { display: none; }
+  .langbar-options .short { display: inline; }
+  .langbar-options button { padding: 5px 13px; }
+  .hide-xs { display: none; }
+}
+
+/* hide Google's own banner, tooltips and highlight so the site keeps its look */
+iframe.skiptranslate, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame,
+.goog-te-spinner-pos, .VIpgJd-ZVi9od-ORHb-OEVmcd, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf { display: none !important; }
+body { top: 0 !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
+font[style] { background: none !important; box-shadow: none !important; }

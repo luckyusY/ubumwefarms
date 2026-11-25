@@ -47,7 +47,7 @@ export default async function Home() {
       <section className="hero hero-photo" style={{ '--hero-bg': `url(${HERO_BG})` }}>
         <div className="wrap hero-grid">
           <div>
-            <span className="eyebrow rise">Murakaza neza · Welcome</span>
+            <span className="eyebrow rise notranslate">Murakaza neza · Welcome</span>
             <h1 className="rise d1">
               Healthy <em className="squiggle">rabbits</em>, straight from our farm.
             </h1>
@@ -151,7 +151,7 @@ export default async function Home() {
           <div className="section-head">
             <div>
               <h2>From our farm</h2>
-              <p>Real photos of our rabbits, taken in our hutches.</p>
+              <p>Real photos of our rabbits and mushrooms, taken on our farm.</p>
             </div>
           </div>
           <div className="farm-photos">

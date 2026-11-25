@@ -8,7 +8,7 @@ export default function Header() {
       <div className="wrap">
         <Link href="/" className="logo">
           <span className="logo-mark"><CatIcon slug="rabbits" /></span>
-          {SITE.name}
+          <span className="notranslate">{SITE.name}</span>
         </Link>
         <nav className="nav">
           <Link href="/animals?category=rabbits" className="link hide-sm">Rabbits</Link>

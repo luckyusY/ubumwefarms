@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { SITE, whatsappLink } from '@/lib/site';
+import LanguageBar from '@/components/LanguageBar';
 import BuyPopup from '@/components/BuyPopup';
 import { WhatsAppIcon } from '@/components/Icons';
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
+        <LanguageBar />
         <Header />
         <main>{children}</main>
         <Footer />

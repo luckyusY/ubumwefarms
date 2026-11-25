@@ -9,7 +9,7 @@ export default function Footer() {
         <div>
           <div className="logo">
             <span className="logo-mark"><CatIcon slug="rabbits" /></span>
-            {SITE.name}
+            <span className="notranslate">{SITE.name}</span>
           </div>
           <p>{SITE.tagline}</p>
           <p>© {new Date().getFullYear()} {SITE.name}</p>
