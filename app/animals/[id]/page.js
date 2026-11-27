@@ -19,7 +19,7 @@ export default async function AnimalPage({ params }) {
   if (!animal || !animal.available) notFound();
   const cat = categoryOf(animal.category);
   const facts = [
-    ['Breed', animal.breed],
+    [cat.slug === 'mushrooms' ? 'Type' : 'Breed', animal.breed],
     ['Age', animal.age],
     ['Sex', animal.sex],
     ['Weight', animal.weight],
@@ -44,6 +44,9 @@ export default async function AnimalPage({ params }) {
             ))}
           </ul>
           {animal.description && <p className="desc">{animal.description}</p>}
+          {cat.slug === 'mushrooms' && (
+            <p><Link href="/mushrooms" className="more">Nutrition, storage tips and recipes</Link></p>
+          )}
           <OrderForm animal={{ _id: animal._id, name: animal.name, price: animal.price, unit: animal.unit, quantity: animal.quantity }} />
         </div>
       </div>

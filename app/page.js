@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import AnimalCard from '@/components/AnimalCard';
 import { getAnimals } from '@/lib/data';
-import { HERO_PHOTO, HERO_BG, FARM_PHOTOS, farmPhoto } from '@/lib/photos';
+import { HERO_PHOTO, HERO_BG, FARM_PHOTOS, MUSHROOM_PHOTOS, farmPhoto } from '@/lib/photos';
 import { Carrot, Sprig, Paws, Ticker } from '@/components/Art';
 import { SITE, CATEGORIES, whatsappLink, formatPrice } from '@/lib/site';
-import { CatIcon, WhatsAppIcon, PhoneIcon, LeafIcon, ArrowIcon, HealthIcon, BreedIcon, HandshakeIcon, AdviceIcon } from '@/components/Icons';
+import { CatIcon, WhatsAppIcon, PhoneIcon, LeafIcon, ArrowIcon, HealthIcon, BreedIcon, HandshakeIcon, AdviceIcon, CheckIcon } from '@/components/Icons';
 
 export const dynamic = 'force-dynamic';
 
@@ -35,7 +35,7 @@ const PRICES = [
     unit: 'per kg',
     icon: 'mushrooms',
     tone: 'hay',
-    href: '/animals?category=mushrooms',
+    href: '/mushrooms',
   },
 ];
 
@@ -143,6 +143,33 @@ export default async function Home() {
               </a>
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="m-home">
+            <div className="m-home-photos">
+              <img src={farmPhoto(MUSHROOM_PHOTOS[0], 420, 560)} alt={MUSHROOM_PHOTOS[0].alt} loading="lazy" />
+              <img src={farmPhoto(MUSHROOM_PHOTOS[1], 420, 560)} alt={MUSHROOM_PHOTOS[1].alt} loading="lazy" />
+            </div>
+            <div>
+              <span className="eyebrow"><CatIcon slug="mushrooms" /> New on our farm</span>
+              <h2>Fresh oyster mushrooms</h2>
+              <p>
+                Grown in our own grow room and picked to order. Tender, mild and quick to cook in sauces, soups
+                and stir-fries.
+              </p>
+              <ul className="checks">
+                <li><CheckIcon aria-hidden /> Only {formatPrice(3000)} per kg</li>
+                <li><CheckIcon aria-hidden /> Low in fat, with protein, fibre and B vitamins</li>
+                <li><CheckIcon aria-hidden /> Regular supply for restaurants, hotels and shops</li>
+              </ul>
+              <div className="hero-actions">
+                <Link href="/mushrooms" className="btn btn-carrot">Learn about our mushrooms <ArrowIcon aria-hidden /></Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
