@@ -49,15 +49,15 @@ export default async function Home() {
           <div>
             <span className="eyebrow rise notranslate">Murakaza neza · Welcome</span>
             <h1 className="rise d1">
-              Healthy <em className="squiggle">rabbits</em>, straight from our farm.
+              Healthy <em className="squiggle">rabbits</em> and fresh <em className="squiggle green">mushrooms</em>, straight from our farm.
             </h1>
             <p className="lead rise d2">
-              {SITE.name} raises rabbits for eating and for breeding, and grows fresh mushrooms. Choose what you
-              want, send your order, and we call you to arrange pickup or delivery.
+              {SITE.name} raises rabbits for eating and for breeding, and grows fresh oyster mushrooms in our
+              own grow room. Choose what you want, send your order, and we call you to arrange pickup or delivery.
             </p>
             <div className="hero-actions rise d3">
               <Link href="/animals?category=rabbits" className="btn btn-carrot"><CatIcon slug="rabbits" /> See rabbits</Link>
-              <Link href="/animals" className="btn">All animals</Link>
+              <Link href="/mushrooms" className="btn"><CatIcon slug="mushrooms" /> See mushrooms</Link>
             </div>
           </div>
           <div className="hero-stage rise d2">
@@ -69,6 +69,10 @@ export default async function Home() {
             <img className="hero-img" src={farmPhoto(HERO_PHOTO, 900, 900)} alt={HERO_PHOTO.alt} />
             <span className="hero-badge b1"><LeafIcon aria-hidden /> Farm raised</span>
             <span className="hero-badge b2">Fair prices</span>
+            <Link href="/mushrooms" className="hero-inset" aria-label="Fresh oyster mushrooms">
+              <img src={farmPhoto(MUSHROOM_PHOTOS[0], 320, 320)} alt="" />
+              <span><CatIcon slug="mushrooms" /> Fresh mushrooms</span>
+            </Link>
           </div>
           </div>
         </div>
